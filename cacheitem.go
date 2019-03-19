@@ -21,6 +21,8 @@ type CacheItem struct {
 	key interface{}
 	// The item's data.
 	data interface{}
+
+	//当这个 key 多久不被访问时,更新掉数据
 	// How long will the item live in the cache when not being accessed/kept alive.
 	lifeSpan time.Duration
 
@@ -99,6 +101,7 @@ func (item *CacheItem) Data() interface{} {
 	return item.data
 }
 
+//过期回调
 // SetAboutToExpireCallback configures a callback, which will be called right
 // before the item is about to be removed from the cache.
 func (item *CacheItem) SetAboutToExpireCallback(f func(interface{})) {

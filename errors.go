@@ -11,6 +11,7 @@ import (
 	"errors"
 )
 
+//一个包一个 errors 文件定义公共的error,很多包都这样做,可以学习下
 var (
 	// ErrKeyNotFound gets returned when a specific key couldn't be found
 	ErrKeyNotFound = errors.New("Key not found in cache")
